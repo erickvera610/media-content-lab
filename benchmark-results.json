@@ -1,0 +1,43 @@
+{
+  "project": "media-content-lab",
+  "executed_at_utc": "2026-10-10T18:37:12.360036+00:00",
+  "execution_method": "Python script",
+  "summary": {
+    "mean_test_mae": 0.0048638397899154725,
+    "mean_baseline_mae": 0.013037744563721167,
+    "seeds_beating_baseline": 5
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "test_mae": 0.005117024029026615,
+      "baseline_mae": 0.012920457016744814,
+      "selected_ridge": 0.01
+    },
+    {
+      "seed": 1,
+      "test_mae": 0.004828989806185405,
+      "baseline_mae": 0.014534170032787501,
+      "selected_ridge": 0.01
+    },
+    {
+      "seed": 2,
+      "test_mae": 0.005397757145828846,
+      "baseline_mae": 0.012905448660071506,
+      "selected_ridge": 0
+    },
+    {
+      "seed": 3,
+      "test_mae": 0.004235474685085967,
+      "baseline_mae": 0.012299914301404594,
+      "selected_ridge": 0
+    },
+    {
+      "seed": 4,
+      "test_mae": 0.004739953283450528,
+      "baseline_mae": 0.012528732807597429,
+      "selected_ridge": 0.01
+    }
+  ],
+  "limitations": "Reproducible prototype evidence, not employer affiliation or production certification."
+}
