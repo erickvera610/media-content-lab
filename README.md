@@ -1,16 +1,28 @@
-# Media Content Lab
+# Media Prediction Lab
 
-A FOX-sector-inspired content analytics prototype comparing engagement rates and ranking sample posts.
+The original ranking calculator is preserved in the Python API. The featured application now trains a regularized regression model to predict synthetic engagement before publication.
 
-An AI-assisted educational portfolio project prepared for Erik Vera's internship learning. This is a working prototype, not production software. Authorship and skills should be represented based on what you can explain and change independently.
+**[Open the live demo](https://erickvera610.github.io/media-content-lab/)** · [Spanish tutorial](TUTORIAL_ES.md) · [Case study](CASE_STUDY.md) · [Measured results](benchmark-results.json)
 
-## Public demo
+## Understand it in one minute
 
-[Open browser demo](https://erickvera610.github.io/media-content-lab/). Visitors can run examples on their device without write access to this repository.
+Pre-publication metadata → regularized regression → validation tuning → final test
 
-## Run in two minutes
+Use duration, planned publication hour and video/article format. Do not use likes, shares, comments or observed views as prediction features: they are outcomes. Shuffle 300 independent synthetic observations into 180 training, 60 validation and 60 test records. Select ridge strength on validation, refit with training plus validation, and compare test MAE with a constant-mean baseline.
 
-Requires Python 3.11 or newer; no pip dependencies.
+## Measured evidence
+
+Reproduced with Python by `python benchmark.py`. Execution timestamp is recorded in the JSON report. Synthetic JavaScript values may differ because the random generator differs.
+
+| Measurement | Result |
+|---|---|
+| mean test mae | 0.0049 |
+| mean baseline mae | 0.0130 |
+| seeds beating baseline | 5 |
+
+## Run locally
+
+Python 3.11 or 3.12, standard library only. No API keys.
 
 ```bash
 git clone https://github.com/erickvera610/media-content-lab.git
@@ -18,38 +30,44 @@ cd media-content-lab
 python app.py
 ```
 
-Open http://127.0.0.1:8000. On Windows, use `py app.py` if `python` is unavailable. Stop with Ctrl+C. Run `python -m unittest discover -v` to execute tests.
+Open http://127.0.0.1:8000. Stop with Ctrl+C. The public browser demo requires no installation.
 
-## Architecture
+## Reproduce and inspect
 
-- `index.html`: responsive accessible interface; renders output with textContent.
-- `app.py`: local HTTP service, `/health`, and validated JSON POST `/api/run`.
-- `core.py`: domain logic separated from transport and presentation.
-- `test_core.py`: deterministic behavior and failure cases.
-- `.github/workflows/tests.yml`: Python 3.11 and 3.12 CI.
-- `TUTORIAL_ES.md`: beginner Spanish guide and interview practice.
+```bash
+python -m unittest discover -v
+node test_enhanced.cjs
+python benchmark.py
+python daily_exercise.py
+```
 
-## API
+Use `core.run({"mode":"model","seed":42,"duration":60,"hour":18,"video":1})`. The output includes test error, baseline error, weights and ten held-out predictions.
 
-POST a JSON object to `/api/run`; inputs are the same fields used by the interface. Responses are JSON. Invalid inputs return 400; unknown paths return 404. GET `/health` returns `{"status":"ok"}`.
+## Read the source
 
-## Design and limits
+- `core.py`: public algorithm entry point and preserved original exercise.
+- `model.py`: featured implementation.
+- `enhanced.js`: browser implementation, readable without a build system.
+- `app.py`: localhost HTTP API.
+- `test_*.py` and `test_enhanced.cjs`: behavior and edge cases.
+- `benchmark.py`: evidence generator.
 
-Comparar solo likes favorece a los posts con mayor exposición. Engagement divide interacciones por visualizaciones. El score añade pesos editoriales a comentarios y compartidos. Es una regla explícita, no IA entrenada. El filtro evita comparar muestras muy pequeñas. Los ejemplos son ficticios y no incluyen contenido ni resultados de FOX.
+## Limitations
 
-The built-in HTTP server is for a local demonstration. There is no authentication, rate limiting, or public production deployment. Never enter personal application records on a publicly exposed demo. Bind to localhost by default. For Codespaces only, run `HOST=0.0.0.0 python app.py` and keep the forwarded port private; usage may consume your GitHub quota.
-
-## Review and contribution workflow
-
-Create a feature branch, make one small change, run the tests, commit it, push the branch, and open a pull request. Explain the change and validation. Do not fabricate collaboration or commit history. Suggested first improvement: add a new input option with one behavior test and update this README.
-
-## References
-
-- https://docs.python.org/3/library/http.server.html
-- https://docs.github.com/en/actions/tutorials/build-and-test-code/python
-
-License: MIT.
+All outcome labels are generated from a known artificial relationship. Success demonstrates implementation and evaluation mechanics, not real audience prediction. Hour is treated linearly; cyclical encoding would be more realistic. If repeated posts from the same author were used, a grouped or chronological split would be required.
 
 ## Daily practical exercises
 
-A daily GitHub Actions job runs one dated fictional scenario and saves inputs and outputs in `exercises/`. Read [Spanish daily guide](EJERCICIOS_DIARIOS_ES.md). Commits are authored by github-actions[bot].
+One dated fictional scenario runs daily through GitHub Actions. `exercises/YYYY-MM-DD/result.json` preserves inputs and outputs; `samples/latest.json` holds the latest input. Bot-authored report commits document script execution, not manual daily development. [Daily Spanish guide](EJERCICIOS_DIARIOS_ES.md).
+
+## Authorship and relevance
+
+Independent AI-assisted learning project in Erik Vera's portfolio. No affiliation with FOX, Tesla or BCG. The documentation distinguishes supplied implementation from improvements the learner actually makes. Code is MIT licensed; third-party data provenance is documented separately.
+
+## Featured portfolio
+
+- [Road Vision Lab](https://github.com/erickvera610/road-vision-lab)
+- [Demand Forecasting Lab](https://github.com/erickvera610/consulting-demand-lab)
+- [Media Prediction Lab](https://github.com/erickvera610/media-content-lab)
+- [Classification Evaluation Lab](https://github.com/erickvera610/ml-model-lab)
+- [Incident Workflow Lab](https://github.com/erickvera610/incident-response-lab)
