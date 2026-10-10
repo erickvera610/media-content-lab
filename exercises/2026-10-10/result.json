@@ -1,0 +1,299 @@
+{
+  "project": "media-content-lab",
+  "date_utc": "2026-10-10",
+  "executed_at_utc": "2026-10-10T18:04:12.849574+00:00",
+  "data_kind": "fictional/synthetic",
+  "execution_method": "Python script",
+  "seed": 20261010,
+  "input": {
+    "seed": 20261010,
+    "min_views": 1534
+  },
+  "output": {
+    "ranked_posts": [
+      {
+        "title": "Fictional post 29",
+        "format": "Article",
+        "views": 2479,
+        "likes": 292,
+        "shares": 57,
+        "comments": 39,
+        "engagement_rate": 0.1565147236789028,
+        "editorial_score": 0.218233158531666
+      },
+      {
+        "title": "Fictional post 16",
+        "format": "Video",
+        "views": 10050,
+        "likes": 1211,
+        "shares": 223,
+        "comments": 155,
+        "engagement_rate": 0.1581094527363184,
+        "editorial_score": 0.21791044776119403
+      },
+      {
+        "title": "Fictional post 22",
+        "format": "Video",
+        "views": 2599,
+        "likes": 277,
+        "shares": 54,
+        "comments": 31,
+        "engagement_rate": 0.13928434013081956,
+        "editorial_score": 0.19276644863409004
+      },
+      {
+        "title": "Fictional post 12",
+        "format": "Clip",
+        "views": 13924,
+        "likes": 1511,
+        "shares": 202,
+        "comments": 143,
+        "engagement_rate": 0.13329503016374605,
+        "editorial_score": 0.17257971847170353
+      },
+      {
+        "title": "Fictional post 14",
+        "format": "Article",
+        "views": 3047,
+        "likes": 308,
+        "shares": 27,
+        "comments": 50,
+        "engagement_rate": 0.1263537906137184,
+        "editorial_score": 0.16048572366261896
+      },
+      {
+        "title": "Fictional post 10",
+        "format": "Video",
+        "views": 5320,
+        "likes": 403,
+        "shares": 75,
+        "comments": 86,
+        "engagement_rate": 0.10601503759398496,
+        "editorial_score": 0.15037593984962405
+      },
+      {
+        "title": "Fictional post 18",
+        "format": "Clip",
+        "views": 8919,
+        "likes": 824,
+        "shares": 110,
+        "comments": 25,
+        "engagement_rate": 0.1075232649400157,
+        "editorial_score": 0.13499271218746497
+      },
+      {
+        "title": "Fictional post 6",
+        "format": "Clip",
+        "views": 4927,
+        "likes": 335,
+        "shares": 56,
+        "comments": 77,
+        "engagement_rate": 0.09498680738786279,
+        "editorial_score": 0.1333468642175766
+      },
+      {
+        "title": "Fictional post 21",
+        "format": "Clip",
+        "views": 10627,
+        "likes": 1084,
+        "shares": 41,
+        "comments": 105,
+        "engagement_rate": 0.11574291897995671,
+        "editorial_score": 0.13333960666227535
+      },
+      {
+        "title": "Fictional post 3",
+        "format": "Clip",
+        "views": 5457,
+        "likes": 365,
+        "shares": 64,
+        "comments": 80,
+        "engagement_rate": 0.09327469305479201,
+        "editorial_score": 0.131390874106652
+      },
+      {
+        "title": "Fictional post 17",
+        "format": "Article",
+        "views": 6947,
+        "likes": 532,
+        "shares": 53,
+        "comments": 86,
+        "engagement_rate": 0.09658845544839499,
+        "editorial_score": 0.12422628472722039
+      },
+      {
+        "title": "Fictional post 30",
+        "format": "Clip",
+        "views": 8722,
+        "likes": 231,
+        "shares": 171,
+        "comments": 135,
+        "engagement_rate": 0.0615684476037606,
+        "editorial_score": 0.11625773905067645
+      },
+      {
+        "title": "Fictional post 23",
+        "format": "Article",
+        "views": 9394,
+        "likes": 547,
+        "shares": 140,
+        "comments": 55,
+        "engagement_rate": 0.07898658718330849,
+        "editorial_score": 0.11464764743453268
+      },
+      {
+        "title": "Fictional post 4",
+        "format": "Video",
+        "views": 2944,
+        "likes": 85,
+        "shares": 50,
+        "comments": 48,
+        "engagement_rate": 0.06216032608695652,
+        "editorial_score": 0.11243206521739131
+      },
+      {
+        "title": "Fictional post 19",
+        "format": "Video",
+        "views": 5260,
+        "likes": 11,
+        "shares": 124,
+        "comments": 62,
+        "engagement_rate": 0.037452471482889736,
+        "editorial_score": 0.09638783269961977
+      },
+      {
+        "title": "Fictional post 2",
+        "format": "Article",
+        "views": 13724,
+        "likes": 526,
+        "shares": 168,
+        "comments": 102,
+        "engagement_rate": 0.05800058292043136,
+        "editorial_score": 0.08991547653745263
+      },
+      {
+        "title": "Fictional post 24",
+        "format": "Clip",
+        "views": 9756,
+        "likes": 381,
+        "shares": 105,
+        "comments": 76,
+        "engagement_rate": 0.057605576055760555,
+        "editorial_score": 0.08692086920869209
+      },
+      {
+        "title": "Fictional post 20",
+        "format": "Article",
+        "views": 8967,
+        "likes": 573,
+        "shares": 41,
+        "comments": 6,
+        "engagement_rate": 0.06914241106278576,
+        "editorial_score": 0.07895617263298763
+      },
+      {
+        "title": "Fictional post 13",
+        "format": "Video",
+        "views": 9006,
+        "likes": 80,
+        "shares": 139,
+        "comments": 107,
+        "engagement_rate": 0.036198090162114144,
+        "editorial_score": 0.07894736842105263
+      },
+      {
+        "title": "Fictional post 1",
+        "format": "Video",
+        "views": 5837,
+        "likes": 238,
+        "shares": 10,
+        "comments": 93,
+        "engagement_rate": 0.058420421449374677,
+        "editorial_score": 0.07777968134315573
+      },
+      {
+        "title": "Fictional post 8",
+        "format": "Article",
+        "views": 4864,
+        "likes": 306,
+        "shares": 13,
+        "comments": 11,
+        "engagement_rate": 0.0678453947368421,
+        "editorial_score": 0.07545230263157894
+      },
+      {
+        "title": "Fictional post 5",
+        "format": "Article",
+        "views": 7524,
+        "likes": 2,
+        "shares": 144,
+        "comments": 65,
+        "engagement_rate": 0.028043593833067516,
+        "editorial_score": 0.07496012759170653
+      },
+      {
+        "title": "Fictional post 27",
+        "format": "Clip",
+        "views": 8735,
+        "likes": 310,
+        "shares": 57,
+        "comments": 66,
+        "engagement_rate": 0.049570692615912994,
+        "editorial_score": 0.0701774470520893
+      },
+      {
+        "title": "Fictional post 25",
+        "format": "Video",
+        "views": 5775,
+        "likes": 248,
+        "shares": 19,
+        "comments": 37,
+        "engagement_rate": 0.05264069264069264,
+        "editorial_score": 0.06562770562770563
+      },
+      {
+        "title": "Fictional post 26",
+        "format": "Article",
+        "views": 4499,
+        "likes": 268,
+        "shares": 6,
+        "comments": 3,
+        "engagement_rate": 0.06156923760835741,
+        "editorial_score": 0.06490331184707712
+      },
+      {
+        "title": "Fictional post 7",
+        "format": "Video",
+        "views": 12911,
+        "likes": 348,
+        "shares": 98,
+        "comments": 88,
+        "engagement_rate": 0.04136008055146774,
+        "editorial_score": 0.06335682751142437
+      },
+      {
+        "title": "Fictional post 9",
+        "format": "Clip",
+        "views": 11235,
+        "likes": 120,
+        "shares": 43,
+        "comments": 68,
+        "engagement_rate": 0.020560747663551402,
+        "editorial_score": 0.03426791277258567
+      },
+      {
+        "title": "Fictional post 28",
+        "format": "Video",
+        "views": 11192,
+        "likes": 83,
+        "shares": 0,
+        "comments": 55,
+        "engagement_rate": 0.01233023588277341,
+        "editorial_score": 0.01724446032880629
+      }
+    ],
+    "eligible_posts": 28,
+    "note": "Independent educational project inspired by media workflows; no affiliation or private FOX data. Rankings are descriptive, not causal."
+  },
+  "completed": true
+}
