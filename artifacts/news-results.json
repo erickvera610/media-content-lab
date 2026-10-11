@@ -1,0 +1,349 @@
+{
+  "executed_at_utc": "2026-10-11T18:46:11.236072+00:00",
+  "dataset": "UCI Online News Popularity (Mashable, historical 2013\u20132014)",
+  "source": {
+    "source": "https://archive.ics.uci.edu/dataset/332/online+news+popularity",
+    "download": "https://archive.ics.uci.edu/static/public/332/online+news+popularity.zip",
+    "csv_sha256": "b66d9088632308cc27fa35af847650d174a5a50503987c4e511de94a99d1c218",
+    "license": "CC BY 4.0",
+    "citation": "Fernandes, K., Vinagre, P., and Cortez, P. (2015). Online News Popularity. UCI Machine Learning Repository. DOI: 10.24432/C5NS3V"
+  },
+  "sklearn_version": "1.8.0",
+  "rows": 39644,
+  "feature_order": [
+    "n_tokens_title",
+    "n_tokens_content",
+    "num_hrefs",
+    "num_self_hrefs",
+    "num_imgs",
+    "num_videos",
+    "average_token_length",
+    "num_keywords",
+    "data_channel_is_lifestyle",
+    "data_channel_is_entertainment",
+    "data_channel_is_bus",
+    "data_channel_is_socmed",
+    "data_channel_is_tech",
+    "data_channel_is_world",
+    "is_weekend"
+  ],
+  "excluded": "shares is target; url is metadata; timedelta orders dates only; keyword/share-history statistics and self_reference_* are excluded to reduce leakage risk.",
+  "target": "log1p(shares)",
+  "split": {
+    "train": 21931,
+    "validation": 8601,
+    "test": 9112
+  },
+  "split_days": {
+    "train": {
+      "oldest_age_days": 731.0,
+      "newest_age_days": 298.0
+    },
+    "validation": {
+      "oldest_age_days": 297.0,
+      "newest_age_days": 153.0
+    },
+    "test": {
+      "oldest_age_days": 152.0,
+      "newest_age_days": 8.0
+    }
+  },
+  "split_indices_sha256": {
+    "train": "ede9ac2302b91756a9537839fd19a38c2165768417c1a91f3aac3560b2c775ef",
+    "validation": "532b214e1834ea16afa6fd5afa1b94538e77bbbebc19572337137c04b0046d8c",
+    "test": "e2e1cf83aba2b7f6de3a83e8a68cd941abec9c01176d31c4d00596cff17df0b2"
+  },
+  "protocol": "Oldest 60% of unique publication-day groups train, next 20% validation, latest 20% test; no day crosses boundaries. Selection uses validation log-MAE, then refit train+validation.",
+  "validation_log_mae": {
+    "ridge": 0.6076011104790775,
+    "hist_gradient_boosting": 0.613673017007754
+  },
+  "selected_model": "ridge",
+  "test": {
+    "log_mae": 0.6403344741479368,
+    "baseline_log_mae": 0.6568934825861811,
+    "log_rmse": 0.865531532849422,
+    "shares_mae": 2148.4041606746596,
+    "baseline_shares_mae": 2169.0122914837575
+  },
+  "examples": [
+    {
+      "source_row_id": 30532,
+      "features": {
+        "n_tokens_title": 10.0,
+        "n_tokens_content": 627.0,
+        "num_hrefs": 16.0,
+        "num_self_hrefs": 4.0,
+        "num_imgs": 6.0,
+        "num_videos": 0.0,
+        "average_token_length": 4.41786283892,
+        "num_keywords": 7.0,
+        "data_channel_is_lifestyle": 0.0,
+        "data_channel_is_entertainment": 0.0,
+        "data_channel_is_bus": 0.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 1.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 1300,
+      "predicted_log1p_shares": 7.894351044938816,
+      "typical_shares_estimate": 2681.088456761361
+    },
+    {
+      "source_row_id": 30533,
+      "features": {
+        "n_tokens_title": 9.0,
+        "n_tokens_content": 1368.0,
+        "num_hrefs": 13.0,
+        "num_self_hrefs": 1.0,
+        "num_imgs": 8.0,
+        "num_videos": 0.0,
+        "average_token_length": 4.38596491228,
+        "num_keywords": 10.0,
+        "data_channel_is_lifestyle": 0.0,
+        "data_channel_is_entertainment": 0.0,
+        "data_channel_is_bus": 0.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 2500,
+      "predicted_log1p_shares": 8.116066838004915,
+      "typical_shares_estimate": 3346.827269068243
+    },
+    {
+      "source_row_id": 30534,
+      "features": {
+        "n_tokens_title": 9.0,
+        "n_tokens_content": 1931.0,
+        "num_hrefs": 9.0,
+        "num_self_hrefs": 3.0,
+        "num_imgs": 1.0,
+        "num_videos": 0.0,
+        "average_token_length": 4.70015535992,
+        "num_keywords": 5.0,
+        "data_channel_is_lifestyle": 0.0,
+        "data_channel_is_entertainment": 0.0,
+        "data_channel_is_bus": 1.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 1800,
+      "predicted_log1p_shares": 7.7165731010181595,
+      "typical_shares_estimate": 2244.2521295467673
+    },
+    {
+      "source_row_id": 30535,
+      "features": {
+        "n_tokens_title": 10.0,
+        "n_tokens_content": 205.0,
+        "num_hrefs": 10.0,
+        "num_self_hrefs": 4.0,
+        "num_imgs": 5.0,
+        "num_videos": 0.0,
+        "average_token_length": 5.22926829268,
+        "num_keywords": 5.0,
+        "data_channel_is_lifestyle": 0.0,
+        "data_channel_is_entertainment": 0.0,
+        "data_channel_is_bus": 0.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 11900,
+      "predicted_log1p_shares": 7.917627681730892,
+      "typical_shares_estimate": 2744.250706224079
+    },
+    {
+      "source_row_id": 30536,
+      "features": {
+        "n_tokens_title": 14.0,
+        "n_tokens_content": 492.0,
+        "num_hrefs": 25.0,
+        "num_self_hrefs": 3.0,
+        "num_imgs": 1.0,
+        "num_videos": 24.0,
+        "average_token_length": 4.61178861789,
+        "num_keywords": 7.0,
+        "data_channel_is_lifestyle": 0.0,
+        "data_channel_is_entertainment": 1.0,
+        "data_channel_is_bus": 0.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 9600,
+      "predicted_log1p_shares": 7.794116998078733,
+      "typical_shares_estimate": 2425.286063066627
+    },
+    {
+      "source_row_id": 30537,
+      "features": {
+        "n_tokens_title": 7.0,
+        "n_tokens_content": 510.0,
+        "num_hrefs": 33.0,
+        "num_self_hrefs": 3.0,
+        "num_imgs": 15.0,
+        "num_videos": 0.0,
+        "average_token_length": 4.43725490196,
+        "num_keywords": 8.0,
+        "data_channel_is_lifestyle": 1.0,
+        "data_channel_is_entertainment": 0.0,
+        "data_channel_is_bus": 0.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 1900,
+      "predicted_log1p_shares": 8.013170297956306,
+      "typical_shares_estimate": 3019.4777643011134
+    },
+    {
+      "source_row_id": 30538,
+      "features": {
+        "n_tokens_title": 9.0,
+        "n_tokens_content": 282.0,
+        "num_hrefs": 9.0,
+        "num_self_hrefs": 2.0,
+        "num_imgs": 11.0,
+        "num_videos": 0.0,
+        "average_token_length": 4.52836879433,
+        "num_keywords": 10.0,
+        "data_channel_is_lifestyle": 1.0,
+        "data_channel_is_entertainment": 0.0,
+        "data_channel_is_bus": 0.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 1600,
+      "predicted_log1p_shares": 7.869374109573661,
+      "typical_shares_estimate": 2614.927791539621
+    },
+    {
+      "source_row_id": 30539,
+      "features": {
+        "n_tokens_title": 12.0,
+        "n_tokens_content": 266.0,
+        "num_hrefs": 18.0,
+        "num_self_hrefs": 2.0,
+        "num_imgs": 12.0,
+        "num_videos": 0.0,
+        "average_token_length": 4.48120300752,
+        "num_keywords": 8.0,
+        "data_channel_is_lifestyle": 1.0,
+        "data_channel_is_entertainment": 0.0,
+        "data_channel_is_bus": 0.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 2900,
+      "predicted_log1p_shares": 7.927058502891719,
+      "typical_shares_estimate": 2770.263141191127
+    },
+    {
+      "source_row_id": 30540,
+      "features": {
+        "n_tokens_title": 13.0,
+        "n_tokens_content": 1118.0,
+        "num_hrefs": 7.0,
+        "num_self_hrefs": 6.0,
+        "num_imgs": 1.0,
+        "num_videos": 1.0,
+        "average_token_length": 5.03398926655,
+        "num_keywords": 10.0,
+        "data_channel_is_lifestyle": 0.0,
+        "data_channel_is_entertainment": 0.0,
+        "data_channel_is_bus": 1.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 4400,
+      "predicted_log1p_shares": 7.67387507043815,
+      "typical_shares_estimate": 2150.4021480454157
+    },
+    {
+      "source_row_id": 30541,
+      "features": {
+        "n_tokens_title": 11.0,
+        "n_tokens_content": 962.0,
+        "num_hrefs": 12.0,
+        "num_self_hrefs": 3.0,
+        "num_imgs": 1.0,
+        "num_videos": 0.0,
+        "average_token_length": 4.57796257796,
+        "num_keywords": 6.0,
+        "data_channel_is_lifestyle": 0.0,
+        "data_channel_is_entertainment": 0.0,
+        "data_channel_is_bus": 1.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 3000,
+      "predicted_log1p_shares": 7.707135643668582,
+      "typical_shares_estimate": 2223.162331899086
+    },
+    {
+      "source_row_id": 30542,
+      "features": {
+        "n_tokens_title": 10.0,
+        "n_tokens_content": 634.0,
+        "num_hrefs": 38.0,
+        "num_self_hrefs": 5.0,
+        "num_imgs": 1.0,
+        "num_videos": 2.0,
+        "average_token_length": 4.70189274448,
+        "num_keywords": 7.0,
+        "data_channel_is_lifestyle": 0.0,
+        "data_channel_is_entertainment": 1.0,
+        "data_channel_is_bus": 0.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 0.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 1300,
+      "predicted_log1p_shares": 7.699990944716805,
+      "typical_shares_estimate": 2207.3279947612887
+    },
+    {
+      "source_row_id": 30543,
+      "features": {
+        "n_tokens_title": 13.0,
+        "n_tokens_content": 1074.0,
+        "num_hrefs": 12.0,
+        "num_self_hrefs": 3.0,
+        "num_imgs": 3.0,
+        "num_videos": 0.0,
+        "average_token_length": 4.78026070764,
+        "num_keywords": 8.0,
+        "data_channel_is_lifestyle": 0.0,
+        "data_channel_is_entertainment": 0.0,
+        "data_channel_is_bus": 0.0,
+        "data_channel_is_socmed": 0.0,
+        "data_channel_is_tech": 0.0,
+        "data_channel_is_world": 1.0,
+        "is_weekend": 1.0
+      },
+      "actual_shares": 2000,
+      "predicted_log1p_shares": 7.526810087012363,
+      "typical_shares_estimate": 1856.1718280991147
+    }
+  ],
+  "limitations": "Historical one-publisher sample; target exposure windows vary. Publication-time availability of all source features is not externally audited. Temporal split does not guarantee absence of all leakage. Not causal, not current FOX performance, not an expected arithmetic mean of shares.",
+  "model_sha256": "1c6935e096219352791cc720e81bbeed71eaafe9e0635c470484b2b5fcfda887"
+}

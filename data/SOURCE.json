@@ -1,0 +1,7 @@
+{
+  "source": "https://archive.ics.uci.edu/dataset/332/online+news+popularity",
+  "download": "https://archive.ics.uci.edu/static/public/332/online+news+popularity.zip",
+  "csv_sha256": "b66d9088632308cc27fa35af847650d174a5a50503987c4e511de94a99d1c218",
+  "license": "CC BY 4.0",
+  "citation": "Fernandes, K., Vinagre, P., and Cortez, P. (2015). Online News Popularity. UCI Machine Learning Repository. DOI: 10.24432/C5NS3V"
+}

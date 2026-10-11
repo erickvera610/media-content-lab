@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 *.db
 .venv/
+
+data/OnlineNewsPopularity.csv
+artifacts/experiments.sqlite3

@@ -1,0 +1,9 @@
+[
+  {
+    "model_sha": "1c6935e096219352791cc720e81bbeed71eaafe9e0635c470484b2b5fcfda887",
+    "executed_at": "2026-10-11T18:46:11.236072+00:00",
+    "model": "ridge",
+    "log_mae": 0.6403344741479368,
+    "baseline_log_mae": 0.6568934825861811
+  }
+]

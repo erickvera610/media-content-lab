@@ -1,5 +1,34 @@
 # Media Prediction Lab
 
+![Tests](https://github.com/erickvera610/media-content-lab/actions/workflows/tests.yml/badge.svg)
+
+## New: trained model on 39,644 real historical articles
+
+**[Inspect the real-news demo](https://erickvera610.github.io/media-content-lab/news-demo.html)** · [Reviewer evidence](RECRUITER_GUIDE.md) · [Training report](artifacts/news-results.json) · [CI tests](https://github.com/erickvera610/media-content-lab/actions/workflows/tests.yml)
+
+The UCI Online News Popularity data contains historical Mashable article metadata. Compare ridge regression and histogram gradient boosting on the first chronological validation interval. Ridge was selected; increased model complexity was not rewarded just for being more elaborate.
+
+Train/validation/test counts: **21,931 / 8,601 / 9,112**. Entire publication-day groups remain together. URL and observation age are excluded from prediction inputs; share-history fields are also excluded to reduce leakage risk. No test-based selection.
+
+Test log-MAE: **0.6403**, compared with the training-median reference **0.6569** — **2.52% reduction**. Original-scale MAE remains high (2148.4 shares); the improvement is modest. Report both scales.
+
+The public browser uses exported trained parameters. Local `/news` uses `/api/news/predict` with the same model. The training script also writes an idempotent SQLite experiment record keyed by model checksum; it does not store private article content.
+
+```bash
+python -m pip install -r requirements.txt
+python news_train.py
+python build_demo_data.py
+python -m unittest discover -v
+node test_news.cjs
+python app.py
+# Open http://127.0.0.1:8000/news
+```
+
+`news_train.py` downloads the public CSV if missing and checks its SHA-256. The large raw CSV is not committed. Dataset attribution, exact download and checksum: [data/SOURCE.json](data/SOURCE.json). CC BY 4.0 data license; cite Fernandes, Vinagre and Cortez (2015), UCI DOI 10.24432/C5NS3V. Repository MIT license covers project code.
+
+The target is log1p(shares), not an engagement rate. Back-transformation estimates a typical share count, not the arithmetic expected mean. Share exposure windows vary; publication-time availability of all fields has not been externally audited. This is historical one-publisher evidence, not current FOX performance or causal impact.
+
+
 The original ranking calculator is preserved in the Python API. The featured application now trains a regularized regression model to predict synthetic engagement before publication.
 
 **[Open the live demo](https://erickvera610.github.io/media-content-lab/)** · [Spanish tutorial](TUTORIAL_ES.md) · [Case study](CASE_STUDY.md) · [Measured results](benchmark-results.json)
@@ -20,7 +49,7 @@ python train_csv.py posts.csv --output trained-model.json
 
 CSV columns: `timestamp,duration_seconds,hour,video,engagement_rate`. Use ISO timestamps with consistent timezone handling, duration 10–180 seconds, integer hour 0–23, video 0/1 and outcome rate 0–1. Supply at least 50 unique dated records. Measure every engagement label over the same observation window. Likes, shares and observed views never enter the feature vector.
 
-The automated test uses explicitly synthetic records to verify chronological training. No real-media performance is claimed until a supplied dataset is evaluated. The public browser demo continues to train on synthetic data. Hour is still linear; cross-author generalization and temporal drift need further evaluation.
+The automated test uses explicitly synthetic records to verify chronological training. That CSV-trainer test is synthetic. The new UCI evaluation above provides separate historical real-data evidence. The original browser exercise remains synthetic; news-demo.html uses the real-data trained model. Hour is still linear; cross-author generalization and temporal drift need further evaluation.
 
 ## Measured evidence
 
@@ -34,7 +63,7 @@ Reproduced with Python by `python benchmark.py`. Execution timestamp is recorded
 
 ## Run locally
 
-Python 3.11 or 3.12, standard library only. No API keys.
+Python 3.11 or 3.12. Core synthetic exercises use the standard library; the real-data models require the declared Python dependencies. No API keys.
 
 ```bash
 git clone https://github.com/erickvera610/media-content-lab.git
@@ -66,7 +95,7 @@ Use `core.run({"mode":"model","seed":42,"duration":60,"hour":18,"video":1})`. Th
 
 ## Limitations
 
-All outcome labels are generated from a known artificial relationship. Success demonstrates implementation and evaluation mechanics, not real audience prediction. Hour is treated linearly; cyclical encoding would be more realistic. If repeated posts from the same author were used, a grouped or chronological split would be required.
+In the original synthetic exercise, outcome labels are generated from a known artificial relationship. The separate UCI experiment has the limitations documented above. Success demonstrates implementation and evaluation mechanics, not real audience prediction. Hour is treated linearly; cyclical encoding would be more realistic. If repeated posts from the same author were used, a grouped or chronological split would be required.
 
 ## Daily practical exercises
 

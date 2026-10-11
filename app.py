@@ -15,6 +15,10 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
+        if self.path == '/news':
+            return self.send(200, (ROOT / 'docs/news-demo.html').read_text(), 'text/html')
+        if self.path in ['/news.js', '/news-model.json', '/news-results.json']:
+            return self.send(200, (ROOT / 'docs' / self.path[1:]).read_text(), 'application/javascript' if self.path.endswith('.js') else 'application/json')
         if self.path == '/health':
             return self.send(200, {'status': 'ok'})
         if self.path == '/':
@@ -22,7 +26,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send(404, {'error': 'Not found'})
 
     def do_POST(self):
-        if self.path != '/api/run':
+        if self.path not in ['/api/run', '/api/news/predict']:
             return self.send(404, {'error': 'Not found'})
         try:
             length = int(self.headers.get('Content-Length', '0'))
@@ -31,7 +35,12 @@ class Handler(BaseHTTPRequestHandler):
             payload = json.loads(self.rfile.read(length))
             if not isinstance(payload, dict):
                 raise ValueError('JSON object required')
-            self.send(200, run(payload))
+            if self.path == '/api/news/predict':
+                from news_train import infer
+                artifact = json.loads((ROOT / 'artifacts/news-model.json').read_text())
+                self.send(200, infer(artifact, payload.get('features', {})))
+            else:
+                self.send(200, run(payload))
         except (ValueError, TypeError, KeyError, OverflowError) as e:
             self.send(400, {'error': str(e)})
 if __name__ == '__main__':
