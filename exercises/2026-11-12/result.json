@@ -1,0 +1,96 @@
+{
+  "project": "media-content-lab",
+  "date_utc": "2026-11-12",
+  "executed_at_utc": "2026-11-12T20:18:48.569400+00:00",
+  "data_kind": "fictional/synthetic",
+  "execution_method": "Python script",
+  "seed": 20261112,
+  "input": {
+    "seed": 20261112,
+    "min_views": 963,
+    "mode": "model"
+  },
+  "output": {
+    "train_samples": 180,
+    "validation_samples": 60,
+    "test_samples": 60,
+    "selected_ridge": 0,
+    "model_selection": [
+      {
+        "ridge": 0,
+        "validation_mae": 0.005048576324784422
+      },
+      {
+        "ridge": 0.01,
+        "validation_mae": 0.005148061319279074
+      },
+      {
+        "ridge": 0.1,
+        "validation_mae": 0.006422225838964111
+      }
+    ],
+    "test_mae": 0.003816457501342553,
+    "baseline_mae": 0.01342460393474944,
+    "prediction": 0.05186171436939953,
+    "weights": {
+      "intercept": 0.02014775863762168,
+      "duration_scaled": -0.00716333421839349,
+      "hour_scaled": 0.012417950333026622,
+      "video": 0.02478827105480571
+    },
+    "examples": [
+      {
+        "id": 171,
+        "actual": 0.023639260003843143,
+        "predicted": 0.026542595201577385
+      },
+      {
+        "id": 255,
+        "actual": 0.020657536767047888,
+        "predicted": 0.018020225889373555
+      },
+      {
+        "id": 1,
+        "actual": 0.02022904120750595,
+        "predicted": 0.026602938928951478
+      },
+      {
+        "id": 107,
+        "actual": 0.04945389453979051,
+        "predicted": 0.04848091116394564
+      },
+      {
+        "id": 208,
+        "actual": 0.05285495833351326,
+        "predicted": 0.05257678272584384
+      },
+      {
+        "id": 78,
+        "actual": 0.03859369798262953,
+        "predicted": 0.04613653551064763
+      },
+      {
+        "id": 33,
+        "actual": 0.029677410702659085,
+        "predicted": 0.04260380743436171
+      },
+      {
+        "id": 299,
+        "actual": 0.012119557208517399,
+        "predicted": 0.013965011631333688
+      },
+      {
+        "id": 232,
+        "actual": 0.02782956615690878,
+        "predicted": 0.027293605119820485
+      },
+      {
+        "id": 47,
+        "actual": 0.029834884457260735,
+        "predicted": 0.029762945037630877
+      }
+    ],
+    "note": "Synthetic engagement labels. Pre-publication features only; tuning uses validation, test is held out. No FOX affiliation or real audience performance claim."
+  },
+  "completed": true
+}
