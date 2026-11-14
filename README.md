@@ -14,7 +14,7 @@ This project trains and evaluates models on **39,644 historical articles** from 
 - Models compared: Ridge regression and histogram gradient boosting
 - Selected model: Ridge
 - Test log-MAE: **0.6403**
-- Training-median baseline log-MAE: **0.6569**
+- Train+validation median baseline log-MAE: **0.6569**
 - Relative reduction: **2.52%**
 - Original-scale MAE: **2148.4 shares**
 
@@ -22,7 +22,7 @@ The improvement is modest and is reported as such. This is historical single-pub
 
 ## Robustness and temporal evaluation
 
-`temporal_robustness.py` evaluates the untouched test period in early, middle, and late chronological slices and measures prediction sensitivity when count-like pre-publication features are perturbed by ±10%.
+`temporal_robustness.py` evaluates the untouched test period in early, middle, and late chronological slices of complete publication-day groups and measures prediction sensitivity when count-like pre-publication features are perturbed by ±10%.
 
 ```bash
 python news_train.py
@@ -30,6 +30,8 @@ python temporal_robustness.py
 ```
 
 The goal is to expose drift and sensitivity, not to tune against the test period.
+
+[November temporal evaluation repair](TEMPORAL_AUDIT.md): fixed row-based slices that split two days across adjacent periods. The report now preserves whole days, includes a fixed baseline per slice and records all source row IDs. Across the three periods, relative log-MAE reductions are 4.21%, 1.00% and 2.35%. This improves evaluation integrity, not the model itself.
 
 ## Leakage controls
 
